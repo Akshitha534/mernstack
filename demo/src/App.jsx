@@ -1,60 +1,35 @@
-import { useState } from "react";
+import React from "react";
+
 import {
   add,
   subtract,
   multiply,
   divide,
-  modulus
+  modulus,
+  addMany,
 } from "./calculator";
 
 function App() {
-  const [num1, setNum1] = useState("");
-  const [num2, setNum2] = useState("");
-  const [result, setResult] = useState("");
+
+  const numbers = [10, 20, 30, 40];
 
   return (
-    <div>
-      <h1>JavaScript Calculator</h1>
+    <div style={{ padding: "20px", fontFamily: "Arial" }}>
 
-      <input
-        type="number"
-        placeholder="Enter First Number"
-        value={num1}
-        onChange={(e) => setNum1(Number(e.target.value))}
-      />
+      <h1>JavaScript Calculator App</h1>
 
-      <br /><br />
+      <h2>Addition: {add(10, 20)}</h2>
 
-      <input
-        type="number"
-        placeholder="Enter Second Number"
-        value={num2}
-        onChange={(e) => setNum2(Number(e.target.value))}
-      />
+      <h2>Subtraction: {subtract(20, 5)}</h2>
 
-      <br /><br />
+      <h2>Multiplication: {multiply(5, 4)}</h2>
 
-      <button onClick={() => setResult(add(num1, num2))}>
-        Add
-      </button>
+      <h2>Division: {divide(20, 4)}</h2>
 
-      <button onClick={() => setResult(subtract(num1, num2))}>
-        Subtract
-      </button>
+      <h2>Modulus: {modulus(10, 3)}</h2>
 
-      <button onClick={() => setResult(multiply(num1, num2))}>
-        Multiply
-      </button>
+      <h2>Add Many: {addMany(...numbers)}</h2>
 
-      <button onClick={() => setResult(divide(num1, num2))}>
-        Divide
-      </button>
-
-      <button onClick={() => setResult(modulus(num1, num2))}>
-        Modulus
-      </button>
-
-      <h2>Result: {result}</h2>
     </div>
   );
 }
